@@ -3,7 +3,7 @@ import path from "path";
 import { createServer as createViteServer } from "vite";
 import { db } from "./src/db/index.ts";
 import { users, orders, trades } from "./src/db/schema.ts";
-import { requireAuth, AuthRequest } from "./src/middleware/auth.ts";
+import { requireAuth, AuthRequest, JWT_SECRET } from "./src/middleware/auth.ts";
 import { matchingEngine } from "./src/api/matching-engine.ts";
 import { eq, desc } from "drizzle-orm";
 import bcrypt from "bcryptjs";
@@ -11,7 +11,7 @@ import jwt from "jsonwebtoken";
 import crypto from "crypto";
 import { GoogleGenAI } from "@google/genai";
 
-const JWT_SECRET = process.env.JWT_SECRET || 'super-secret-key-for-dev';
+// Using JWT_SECRET imported from auth middleware which generates a secure cryptographically random fallback.
 
 // Lazy-initialized Gemini Client to prevent crashes on startup if secret key is not set yet
 let aiInstance: GoogleGenAI | null = null;

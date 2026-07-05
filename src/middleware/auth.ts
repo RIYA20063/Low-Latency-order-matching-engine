@@ -8,7 +8,9 @@ export interface AuthRequest extends Request {
   };
 }
 
-const JWT_SECRET = process.env.JWT_SECRET || 'super-secret-key-for-dev';
+import crypto from 'crypto';
+
+export const JWT_SECRET = process.env.JWT_SECRET || crypto.randomBytes(32).toString('hex');
 
 export const requireAuth = async (
   req: AuthRequest,
