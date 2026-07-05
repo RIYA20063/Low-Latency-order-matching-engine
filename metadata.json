@@ -1,0 +1,6 @@
+{
+  "name": "Order Matching Engine Architecture",
+  "description": "A deep dive into the architecture, data structures, and technologies required to build sub-microsecond matching engines for high-frequency trading.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
